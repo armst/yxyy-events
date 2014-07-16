@@ -6,15 +6,15 @@ Mini mobile web app used for adding and editing conference events in the native 
 
 API for interacting with app
 ===========
-http://mobileroadie.com/dev/shows/getAll
-http://mobileroadie.com/dev/shows/create
-http://mobileroadie.com/dev/shows/update
-http://mobileroadie.com/dev/shows/delete
+http://mobileroadie.com/dev/shows/getAll<br>
+http://mobileroadie.com/dev/shows/create<br>
+http://mobileroadie.com/dev/shows/update<br>
+http://mobileroadie.com/dev/shows/delete<br>
 
 To do list for next year
 ===========
-Disable submit button on click to avoid duplicate entries
-Allow users to delete events?
-Put image uploading back in!
-Any need to restrict editing to creator?
-Build out more of desktop version for a public station at the event
+* Disable submit button on click to avoid duplicate entries
+* Allow users to delete events?
+* Put image uploading back in!
+* Any need to restrict editing to creator?
+* Build out more of desktop version for a public station at the event
