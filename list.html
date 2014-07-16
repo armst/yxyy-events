@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>List of Events</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+    <link rel="stylesheet" href="css/custom.css">
+
+<script>
+function submitForm() {
+	
+      fdata = $('#formguy').serializeArray();
+			//console.log(fdata);
+			
+           $.ajax({
+            url: "addevent.php",
+            data: fdata,
+            type: 'POST',
+            success: function (resp) {
+              var json = $.parseJSON(resp);
+              //console.log(resp);
+              $("#feedbackDialog").show();
+              $("#text").text(json.message);
+            },
+            error: function(resp) {
+              var json = $.parseJSON(resp);
+              console.log(resp);
+              $("#feedbackDialog").show();
+              $("#text").text(json.message);
+            }  
+        });
+		
+}
+
+$( "a.gotit" ).click(function( event ) {
+  event.preventDefault();
+  $( "#feedbackDialog" ).hide();
+});
+
+</script>
+
+</head>
+<body>
+
+<script>
+$.ajax({
+   url: "getevents.php",
+   data: {
+       format: 'json'
+   },
+   success: function (data) {
+      $.each($.parseJSON(data), function (i, item) {
+        $('<li><a href="index.php?id='+ item.id + '">' + item.title + '</a></li>').appendTo('#event-list');
+      });
+      $('#event-list').listview('refresh');
+    },
+   error: function (jqXHR, status, error) {
+       console.log('error', status, error);
+   }
+});
+</script>
+
+<script>
+function getParameterByName(name) {
+    var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+}
+
+</script>
+
+<div data-role="page" id="list">
+    <div data-role="header" id="header" class="add">
+      <div data-role="navbar">
+        <ul>
+          <li><a href="index.php" data-icon="plus" rel="external">Add New</a></li>
+          <li><a href="locations.html" data-icon="location">Locations</a></li>
+          <li><a class="ui-btn-active" data-icon="edit">Edit</a></li>
+        </ul>
+      </div>
+    </div>
+    <div role="main" class="ui-content">
+        <div id="header"></div>
+        <ul id="event-list" data-role="listview" data-filter="true" data-filter-placeholder="Search events" data-inset="true">
+        </ul>
+    </div>
+</div>
+    
+</body>
+</html>

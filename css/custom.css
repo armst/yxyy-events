@@ -1,0 +1,19 @@
+label, label.ui-input-text, label.ui-select {margin-top:10px !important;}
+.ui-mobile label {font-weight:lighter !important;}
+.instructions {color:#666; font-size:10px;}
+.optional {padding-top:3px; float:right; text-transform:uppercase; color:#666; font-size:10px; line-height:16px; font-weight:normal;}
+.required {padding-top:3px; float:right; text-transform:uppercase; color:#666; font-size:10px; line-height:16px; font-weight:normal;}
+.uploader {margin:10px 0 !important; width:100%;}
+.ui-btn-corner-all {border-radius:0.6em;}
+.ui-btn {-webkit-transition:background-color 0.3s ease; transition:background-color 0.3s ease;}
+#feedbackDialog {position:absolute; top:50%; left:50%; width:300px; margin:-30px 0 0 -160px; background:#4d4d4d; color:#ffffff; text-align:center; text-shadow:none; -webkit-box-shadow:2px 2px 6px 0 rgba(0,0,0,0.2); box-shadow:2px 2px 6px 0 rgba(0,0,0,0.2); font-weight:bold; padding:10px; z-index:1; border-radius:5px; cursor:pointer;}
+a.gotit {display:block; width:22px; height:22px; cursor:pointer; position:absolute; top:5px; right:5px;}
+
+@media all and (min-width:800px) {
+  .column {width:50%; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box;}
+  .column.one {float:left;}
+  .column.two {float:right; padding-left:20px;}
+  .uploader {margin:20px 0;}
+	 /* #header h1 {text-indent:-4000em; display:block; width:730px; padding-top:144px;background:url('header.png') no-repeat; background-size:70%;} */
+	 #header h1 {font-size:64px; margin:0 5%;}
+}
